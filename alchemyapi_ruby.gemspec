@@ -9,4 +9,6 @@ Gem::Specification.new do |s|
   s.files       = ["lib/AlchemyAPI.rb"]
   s.homepage    = 'http://www.alchemyapi.com/developers/sdks/'
   s.license       = 'Unknown'
+
+  s.add_dependency 'xml-simple'
 end
