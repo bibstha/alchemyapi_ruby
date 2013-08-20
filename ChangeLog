@@ -1,0 +1,13 @@
+CHANGELOG
+
+0.8 - Added support for author extraction and targeted sentiment analysis
+0.7 - Added support for relations extraction.
+0.6 - Added support for sentiment analysis.  Added RDF support.
+0.5.1 - Added support for ruby 1.9.
+0.5 - Added GetRankedConcepts calls and param object.
+0.4.2 - Added Parameters objects, GET support for URL calls.
+0.4 - Added GetRankedKeywords call, added TextGetCategory call.
+0.3.1 - Corrected response parsing error.
+0.3 - Added JSON support, added ConstraintQuery call, general improvements.
+0.2 - Added setApiKey() call, setApiHost() call, updated API endpoint.
+0.1 - Initial Release
