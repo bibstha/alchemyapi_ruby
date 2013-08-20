@@ -1790,13 +1790,14 @@ class AlchemyAPI
 
   def DoPost(endpoint, prefix, parameterObject)
     httpDest = 'http://' + @hostPrefix + '.alchemyapi.com/calls/' + prefix + '/' + endpoint
+    uri = URI.parse(httpDest)
 
     payloadData = "apikey=" + @apiKey + parameterObject.getParameterString()
 
-    httpObj = Net::HTTP.new(@hostPrefix + ".alchemyapi.com", 80);
-
-    response = httpObj.post(httpDest, payloadData)
-
+    httpObj = Net::HTTP.new(uri.host, 80);
+    request = Net::HTTP::Post.new(uri.request_uri)
+    request["Accept-Encoding"] = "identity"
+    response = httpObj.request(request, payloadData)
     return HandleResponse(response, parameterObject)
   end
 
@@ -1812,6 +1813,7 @@ class AlchemyAPI
     httpObj = Net::HTTP.new(uri.host, 80);
 
     request = Net::HTTP::Get.new(uri.request_uri) 
+    request["Accept-Encoding"] = "identity"
     response = httpObj.request(request)
 
     return HandleResponse(response, parameterObject)
